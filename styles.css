@@ -1,65 +1,102 @@
+/* General styles */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-image: url('../images/minecraft-scenic-bg.jpg'); /* Add your custom background */
+  background-image: url('../images/minecraft-scenic-bg.jpg'); /* Custom background */
   background-size: cover;
   color: white;
   text-align: center;
 }
 
-header {
-  background: rgba(0, 0, 0, 0.5);
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
-h1, h2 {
-  color: #ffcc00;
+/* Header and Navigation */
+header {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px 0;
 }
 
-nav {
+.server-banner {
+  max-width: 100%;
+  height: auto;
+}
+
+nav.navigation {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-.button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  margin: 5px;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 5px;
+.nav-button {
+  background-color: #ffcc00;
+  color: #333;
   text-decoration: none;
+  padding: 10px 20px;
+  margin: 0 10px;
+  border-radius: 30px;
+  font-weight: bold;
   display: inline-flex;
   align-items: center;
+  transition: background-color 0.3s ease;
 }
 
-.button .icon {
+.nav-button img.icon {
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
 }
 
-.button:hover {
-  background-color: #45a049;
+.nav-button:hover {
+  background-color: #ff9900;
 }
 
-.status, .rules {
-  margin-top: 50px;
-  padding: 20px;
+/* Main content */
+main {
+  margin: 50px auto;
+}
+
+section {
   background: rgba(0, 0, 0, 0.7);
+  padding: 30px;
+  margin-bottom: 40px;
   border-radius: 10px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.status p, .rules ul {
+h2 {
+  color: #ffcc00;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.status-details p {
   font-size: 1.2rem;
   margin: 10px 0;
+  font-weight: bold;
+}
+
+.status-details span {
+  color: #ffcc00;
 }
 
 .rules ul {
   list-style-type: none;
+  padding: 0;
+}
+
+.rules ul li {
+  font-size: 1.2rem;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.rules ul li:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .rules ul li::before {
@@ -71,14 +108,29 @@ nav {
   margin-left: -1em;
 }
 
-.icon-large {
-  width: 50px;
-  height: auto;
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  color: #fff;
+  margin-top: 50px;
 }
 
-footer {
-  margin-top: 30px;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  color: #fff;
+footer p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav.navigation {
+    flex-direction: column;
+  }
+
+  .nav-button {
+    margin: 10px 0;
+  }
+
+  section {
+    margin: 20px auto;
+  }
 }
