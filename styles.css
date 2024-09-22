@@ -2,32 +2,38 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-  background-image: url('../images/minecraft-scenic-bg.jpg'); /* Custom background */
+  background-image: url('images/custom-background.jpg'); /* Custom background image */
   background-size: cover;
-  color: white;
-  text-align: center;
+  background-position: center;
+  background-attachment: fixed;
+  color: #f1f1f1;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  text-align: center;
 }
 
-/* Header and Navigation */
+/* Header */
 header {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 20px 0;
+  padding: 40px;
+  background-color: rgba(31, 31, 31, 0.8); /* Slight transparency to show background */
+  border-bottom: 2px solid #ffcc00;
 }
 
-.server-banner {
-  max-width: 100%;
-  height: auto;
+h1 {
+  font-size: 3rem;
+  color: #ffcc00;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #f1f1f1;
 }
 
 nav.navigation {
-  display: flex;
-  justify-content: center;
   margin-top: 20px;
 }
 
@@ -35,102 +41,79 @@ nav.navigation {
   background-color: #ffcc00;
   color: #333;
   text-decoration: none;
-  padding: 10px 20px;
-  margin: 0 10px;
-  border-radius: 30px;
+  padding: 10px 30px;
+  border-radius: 5px;
   font-weight: bold;
+  transition: background-color 0.3s ease;
   display: inline-flex;
   align-items: center;
-  transition: background-color 0.3s ease;
-}
-
-.nav-button img.icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
 }
 
 .nav-button:hover {
   background-color: #ff9900;
 }
 
-/* Main content */
+/* Discord Icon */
+.discord-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* Main Content */
 main {
   margin: 50px auto;
+  padding: 20px;
 }
 
 section {
-  background: rgba(0, 0, 0, 0.7);
+  background-color: rgba(31, 31, 31, 0.8); /* Transparent background to blend with the custom background */
   padding: 30px;
   margin-bottom: 40px;
-  border-radius: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
 }
 
 h2 {
+  font-size: 2rem;
   color: #ffcc00;
   margin-bottom: 20px;
-  font-size: 2rem;
 }
 
 .status-details p {
   font-size: 1.2rem;
   margin: 10px 0;
-  font-weight: bold;
 }
 
-.status-details span {
-  color: #ffcc00;
-}
-
-.rules ul {
-  list-style-type: none;
-  padding: 0;
+.rules ul, .faq .faq-item {
+  font-size: 1.1rem;
+  text-align: left;
+  margin: 20px auto;
+  max-width: 800px;
 }
 
 .rules ul li {
-  font-size: 1.2rem;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
   margin-bottom: 10px;
-  border-radius: 8px;
 }
 
-.rules ul li:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.rules ul li::before {
-  content: "\2022"; /* Bullet point */
+.faq-item h3 {
   color: #ffcc00;
-  font-weight: bold;
-  display: inline-block;
-  width: 1em;
-  margin-left: -1em;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-  background: rgba(0, 0, 0, 0.6);
   padding: 20px;
-  color: #fff;
-  margin-top: 50px;
+  background-color: rgba(31, 31, 31, 0.8); /* Transparent footer background */
+  border-top: 2px solid #ffcc00;
+  color: #f1f1f1;
 }
 
 footer p {
   margin: 0;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  nav.navigation {
-    flex-direction: column;
-  }
-
-  .nav-button {
-    margin: 10px 0;
-  }
-
-  section {
-    margin: 20px auto;
-  }
 }
