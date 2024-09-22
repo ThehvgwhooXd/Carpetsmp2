@@ -10,54 +10,88 @@
 
   <header>
     <div class="container">
-      <img src="images/server-banner.png" alt="CarpetSMP2 Server Banner" class="server-banner">
+      <h1>CarpetSMP2</h1>
+      <h2>Minecraft Lifesteal Earth Server</h2>
       <nav class="navigation">
         <a href="https://discord.com/yourdiscordlink" class="nav-button">
-          <img src="images/discord-icon.png" alt="Discord" class="icon"> Discord
-        </a>
-        <a href="wiki.html" class="nav-button">
-          <img src="images/wiki-icon.png" alt="Wiki" class="icon"> Wiki
+          <img src="images/custom-discord-icon.png" alt="Discord Icon" class="discord-icon">
+          Join our Discord
         </a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="status">
+    <section class="server-status">
       <h2>Server Status</h2>
       <div class="status-details">
-        <p><span>IP:</span> yourserverip</p>
-        <p><span>Port:</span> yourserverport</p>
-        <p><span>Uptime:</span> 99.9%</p>
-        <p><span>Version:</span> 1.18 - 1.20.1</p>
-        <p><span>Gamemode:</span> Lifesteal</p>
-        <p><span>Cracked:</span> Yes</p>
-        <p><span>Supports Bedrock:</span> Yes</p>
+        <p><strong>IP:</strong> <span id="server-ip">Fetching...</span></p>
+        <p><strong>Port:</strong> <span id="server-port">Fetching...</span></p>
+        <p><strong>Uptime:</strong> 99.9%</p>
+        <p><strong>Players Online:</strong> <span id="player-count">Fetching...</span> / <span id="max-players">100</span></p>
       </div>
     </section>
 
     <section class="rules">
-      <h2>Server Rules</h2>
+      <h2>[Server Rules]</h2>
       <ul>
-        <li>No griefing. Respect other players' builds and belongings.</li>
-        <li>No hacking or using client-side mods that give unfair advantages.</li>
-        <li>No combat logging or exploiting game mechanics.</li>
-        <li>Respect other players and staff. Toxicity or hate speech is not allowed.</li>
-        <li>No offensive or inappropriate language/content in chat.</li>
-        <li>No spamming or advertising other servers.</li>
-        <li>No duping items or using glitches to gain an unfair advantage.</li>
-        <li>No AFK farms or other methods to bypass game mechanics.</li>
-        <li>Follow all staff instructions. Staff decisions are final.</li>
-        <li>Have fun and play fair. Enjoy the game and contribute to the community.</li>
+        <li>No griefing or stealing other players' belongings.</li>
+        <li>No hacking, cheating, or using unfair advantages.</li>
+        <li>Respect other players and staff members.</li>
+        <li>Don't spam chat or advertise other servers.</li>
+        <li>Follow all staff instructions.</li>
       </ul>
+    </section>
+
+    <section class="faq">
+      <h2>[FAQ]</h2>
+      <div class="faq-item">
+        <h3>What is Lifesteal?</h3>
+        <p>Lifesteal is a game mode where you steal hearts from other players when you kill them. Lose all your hearts and you're eliminated!</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the server map?</h3>
+        <p>The server uses a custom Earth map, allowing players to explore and claim regions of the world.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I get custom items?</h3>
+        <p>Custom items can be crafted or found in specific areas. Explore the map and fight bosses to earn them.</p>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2024 CarpetSMP2 | Minecraft Earth & Lifesteal Server</p>
-    </div>
+    <p>&copy; 2024 CarpetSMP2 | Lifesteal Minecraft Server</p>
   </footer>
+
+  <!-- MCSrvStat API integration -->
+  <script>
+    const serverIP = 'yourserverip.com'; // Replace with your server IP
+    const apiUrl = `https://api.mcsrvstat.us/2/${serverIP}`;
+
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.online) {
+          document.getElementById('server-ip').textContent = data.ip;
+          document.getElementById('server-port').textContent = data.port;
+          document.getElementById('player-count').textContent = data.players.online;
+          document.getElementById('max-players').textContent = data.players.max;
+        } else {
+          document.getElementById('server-ip').textContent = 'Offline';
+          document.getElementById('server-port').textContent = '-';
+          document.getElementById('player-count').textContent = '0';
+          document.getElementById('max-players').textContent = '-';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching server status:', error);
+        document.getElementById('server-ip').textContent = 'Error';
+        document.getElementById('server-port').textContent = '-';
+        document.getElementById('player-count').textContent = 'Error';
+        document.getElementById('max-players').textContent = '-';
+      });
+  </script>
 
 </body>
 </html>
